@@ -600,18 +600,20 @@ export function App() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-8 px-[9%] border-t border-gray-800">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-400">
-            © 2026 <span className="text-[#b74b4b]">Natan Barbosa</span>. Todos os direitos reservados.
-          </p>
-          <div className="flex items-center gap-2 text-gray-400">
+       {/* Footer */}
+      <footer className="py-8 px-[5%] border-t border-gray-800">
+        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4">
+          
+          <div className="flex items-center gap-2 text-gray-400 order-2 md:order-1">
             <span>Feito com</span>
             <i className="fa-solid fa-heart text-[#b74b4b] animate-pulse"></i>
             <span>e muito</span>
             <i className="fa-solid fa-mug-hot text-[#b74b4b]"></i>
           </div>
+          {/*copyright no extremo direito */}
+          <p className="text-gray-400 order-1 md:order-2 text-right">
+            © 2024 <span className="text-[#b74b4b]">Natan Barbosa</span>. Todos os direitos reservados.
+          </p>
         </div>
       </footer>
     </div>
