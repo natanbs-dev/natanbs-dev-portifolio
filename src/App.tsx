@@ -43,6 +43,7 @@ export function App() {
     { id: 'skills', label: 'Skills' },
     { id: 'projects', label: 'Projetos' },
     { id: 'experience', label: 'Experiência' },
+    { id: 'academica', label: 'Formação Acadêmica'},
     { id: 'contact', label: 'Contato' },
   ];
 
@@ -86,17 +87,24 @@ export function App() {
 
   const experiences = [
     {
-      role: 'Backend Developer',
-      company: 'Empresa de Tecnologia',
-      period: '2022 - Presente',
+      role: 'Suporte Técnico',
+      // company: 'Empresa de Tecnologia',
+      period: '2020 - 2023',
+      description: 'Desempenhei um papel crucial na instalação e manutenção de sistemas operacionais. \nCriação de scripts de automação, manutenção de sistemas e suporte a infraestrutura.',
+    },
+    {
+      role: 'Desenvolvedor Trainee',
+      company: 'Compass Uol',
+      period: '2023 - 2024',
       description: 'Desenvolvimento de APIs RESTful, integração de sistemas e automação de processos.',
     },
     {
-      role: 'Desenvolvedor Jr',
-      company: 'Startup',
-      period: '2020 - 2022',
-      description: 'Criação de scripts de automação, manutenção de sistemas e suporte a infraestrutura.',
+      role:'segurança da informação',
+      company: 'compass uol',
+      period: '2022 - 2025',
+      description:'desenovlimento'
     },
+
   ];
 
   return (
@@ -140,7 +148,7 @@ export function App() {
             Olá, eu sou <span className="text-[#b74b4b]">Natan</span>
           </h1>
           <h3 className="text-2xl md:text-4xl font-semibold my-4">
-            Eu sou <span className="text-[#b74b4b]">{typedText}</span>
+             <span className="text-[#b74b4b]">{typedText}</span>
             <span className="animate-pulse">|</span>
           </h3>
           <p className="text-base md:text-lg text-gray-400 max-w-lg mb-6">
@@ -363,7 +371,7 @@ export function App() {
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
             Meus <span className="text-[#b74b4b]">Projetos</span>
           </h2>
-          <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-gray-400 mb-12 max-w-12xl mx-auto">
             Alguns dos projetos que desenvolvi utilizando diferentes tecnologias e abordagens.
           </p>
 
@@ -422,7 +430,7 @@ export function App() {
 
       {/* Experience Section */}
       <section id="experience" className="min-h-screen flex items-center px-[9%] py-20">
-        <div className="max-w-4xl mx-auto w-full">
+        <div className="max-w-6xl mx-auto w-full">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
             Minha <span className="text-[#b74b4b]">Experiência</span>
           </h2>
@@ -456,20 +464,22 @@ export function App() {
           </div>
 
           {/* Education */}
-          <div className="mt-16">
-            <h3 className="text-2xl font-bold text-center mb-8">
-              <i className="fa-solid fa-graduation-cap text-[#b74b4b] mr-3"></i>
+          <div className="mt-6">
+            <h3 className="text-4xl font-bold text-center mb-4">
+              <i className=" max-w-36xl mx-auto w-full fa-solid fa-graduation-cap text-[#b74b4b] mr-3"></i>
               Formação Acadêmica
             </h3>
+
+            
             <div className="bg-[#1a1a1a] p-6 rounded-2xl border border-gray-800 max-w-xl mx-auto">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-[#b74b4b]/20 rounded-lg flex items-center justify-center flex-shrink-0">
                   <i className="fa-solid fa-university text-[#b74b4b] text-xl"></i>
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold">Ciência da Computação</h4>
-                  <p className="text-gray-400">Universidade</p>
-                  <p className="text-[#b74b4b] text-sm mt-1">2018 - 2022</p>
+                  <h4 className="text-lg font-bold">Análise e Desenvolvimento de Sistemas</h4>
+                  <p className="text-gray-400">Estácio de Sá</p>
+                  <p className="text-[#b74b4b] text-sm mt-1">2020 - 2023</p>
                 </div>
               </div>
             </div>
@@ -479,11 +489,11 @@ export function App() {
 
       {/* Contact Section */}
       <section id="contact" className="min-h-screen flex items-center px-[9%] py-20 bg-[#0a0a0a]">
-        <div className="max-w-4xl mx-auto w-full">
+        <div className="max-w-6xl mx-auto w-full">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
             Entre em <span className="text-[#b74b4b]">Contato</span>
           </h2>
-          <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-gray-400 mb-12 max-w-12xl mx-auto">
             Tem um projeto em mente? Vamos conversar! Estou sempre aberto a novas oportunidades e parcerias.
           </p>
 
