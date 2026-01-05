@@ -57,30 +57,30 @@ export function App() {
     { name: 'SQL', level: 82, icon: 'fa-solid fa-database' },
   ];
 
-  const projects = [
+   const projects = [
     {
-      title: 'API RESTful com Spring Boot',
-      description: 'Sistema de gerenciamento de usuários com autenticação JWT, Spring Security e PostgreSQL.',
-      tech: ['Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
-      github: 'https://github.com/natanbs-dev',
+      title: 'Linux Lightweight',
+      description: 'Scripts e configurações para otimização de sistemas Linux, focando em performance e redução de consumo de recursos.',
+      tech: ['Linux', 'Shell Script', 'Bash', 'DevOps'],
+      github: 'https://github.com/natanbs-dev/linux_lightweight',
     },
     {
-      title: 'Automação de Deploy',
-      description: 'Scripts de automação para CI/CD utilizando Shell Script e integração com pipelines.',
-      tech: ['Shell Script', 'Linux', 'CI/CD', 'Jenkins'],
-      github: 'https://github.com/natanbs-dev',
+      title: 'PicPay Backend Challenge',
+      description: 'Solução para o desafio técnico do PicPay, implementando uma API de transferências entre usuários.',
+      tech: ['Java', 'Spring Boot', 'REST API', 'H2'],
+      github: 'https://github.com/natanbs-dev/PicPay-backend-challenge',
     },
     {
-      title: 'Sistema de Monitoramento',
-      description: 'Aplicação Python para monitoramento de servidores com alertas e dashboards.',
-      tech: ['Python', 'Flask', 'Redis', 'Grafana'],
-      github: 'https://github.com/natanbs-dev',
+      title: 'Desafio Técnico Entrevista',
+      description: 'Implementação de desafio técnico para processo seletivo, demonstrando boas práticas de código e arquitetura.',
+      tech: ['Java', 'Clean Code', 'Design Patterns', 'Testing'],
+      github: 'https://github.com/natanbs-dev/desafio_tecnico_entrevista',
     },
     {
-      title: 'Microserviços com Kafka',
-      description: 'Arquitetura de microserviços usando Apache Kafka para comunicação assíncrona.',
-      tech: ['Java', 'Kafka', 'Docker', 'Kubernetes'],
-      github: 'https://github.com/natanbs-dev',
+      title: 'Teach Python',
+      description: 'Repositório educacional com exemplos e exercícios para ensino de Python, desde o básico até conceitos avançados.',
+      tech: ['Python', 'Educação', 'Algoritmos', 'Estrutura de Dados'],
+      github: 'https://github.com/natanbs-dev/teach-python',
     },
   ];
 
@@ -211,73 +211,78 @@ export function App() {
 
       {/* About Section */}
       <section id="about" className="min-h-screen flex items-center px-[9%] py-20 bg-[#0a0a0a]">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+        <div className="w-full">
+          {/* Título centralizado */}
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
             Sobre <span className="text-[#b74b4b]">Mim</span>
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <p className="text-lg text-gray-300 leading-relaxed">
+          {/* Texto principal - CENTRALIZADO NA TELA */}
+          <div className="w-full flex justify-center mb-20">
+            <div className="max-w-4xl text-center space-y-8 px-4">
+              <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
                 Sou um <span className="text-[#b74b4b] font-semibold">Backend Developer</span> baseado no Brasil, 
                 com paixão por construir sistemas robustos e escaláveis. Minha jornada na programação começou 
                 com a curiosidade de entender como as coisas funcionam por baixo dos panos.
               </p>
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
                 Especializado em <span className="text-[#b74b4b] font-semibold">Java, Python e JavaScript</span>, 
                 tenho experiência sólida com ambientes Linux e automação através de Shell Script. 
                 Acredito que código limpo e bem documentado é a base de qualquer projeto de sucesso.
               </p>
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
                 Quando não estou programando, gosto de explorar novas tecnologias, contribuir com projetos 
                 open source e compartilhar conhecimento com a comunidade dev.
               </p>
-
-              <div className="flex flex-wrap gap-4 pt-4">
-                <div className="bg-[#1a1a1a] px-6 py-3 rounded-lg border border-gray-800">
-                  <span className="text-[#b74b4b] font-bold text-2xl">3+</span>
-                  <p className="text-gray-400 text-sm">Anos de Experiência</p>
-                </div>
-                <div className="bg-[#1a1a1a] px-6 py-3 rounded-lg border border-gray-800">
-                  <span className="text-[#b74b4b] font-bold text-2xl">20+</span>
-                  <p className="text-gray-400 text-sm">Projetos Completados</p>
-                </div>
-                <div className="bg-[#1a1a1a] px-6 py-3 rounded-lg border border-gray-800">
-                  <span className="text-[#b74b4b] font-bold text-2xl">10+</span>
-                  <p className="text-gray-400 text-sm">Tecnologias Dominadas</p>
-                </div>
+            </div>
+          </div>
+          {/* Cards de estatísticas e informações */}
+          <div className="max-w-10xl mx-auto grid md:grid-cols-2 gap-5 items-start">
+            {/* Estatísticas */}
+            <div className="flex flex-wrap gap-6 justify-center">
+              <div className="bg-[#1a1a1a] px-8 py-6 rounded-xl border border-gray-800 text-center min-w-[140px] hover:border-[#b74b4b] transition-all duration-300">
+                <span className="text-[#b74b4b] font-bold text-4xl block">3+</span>
+                <p className="text-gray-400 text-sm mt-2">Anos de Experiência</p>
+              </div>
+              <div className="bg-[#1a1a1a] px-8 py-6 rounded-xl border border-gray-800 text-center min-w-[140px] hover:border-[#b74b4b] transition-all duration-300">
+                <span className="text-[#b74b4b] font-bold text-4xl block">20+</span>
+                <p className="text-gray-400 text-sm mt-2">Projetos Completados</p>
+              </div>
+              <div className="bg-[#1a1a1a] px-8 py-6 rounded-xl border border-gray-800 text-center min-w-[140px] hover:border-[#b74b4b] transition-all duration-300">
+                <span className="text-[#b74b4b] font-bold text-4xl block">10+</span>
+                <p className="text-gray-400 text-sm mt-2">Tecnologias Dominadas</p>
               </div>
             </div>
-
-            <div className="bg-[#1a1a1a] p-6 rounded-2xl border border-gray-800">
-              <h3 className="text-xl font-semibold mb-4 text-[#b74b4b]">Informações Rápidas</h3>
-              <div className="space-y-4">
+            {/* Informações Rápidas */}
+            <div className="bg-[#1a1a1a] p-8 rounded-2xl border border-gray-800 hover:border-[#b74b4b] transition-all duration-300">
+              <h3 className="text-xl font-semibold mb-6 text-[#b74b4b]">Informações Rápidas</h3>
+              <div className="space-y-5">
                 <div className="flex items-center gap-4">
                   <i className="fa-solid fa-user text-[#b74b4b] text-xl w-8"></i>
                   <div>
                     <p className="text-gray-400 text-sm">Nome</p>
-                    <p className="font-medium">Natan Barbosa</p>
+                    <p className="font-medium text-lg">Natan Barbosa</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
                   <i className="fa-solid fa-location-dot text-[#b74b4b] text-xl w-8"></i>
                   <div>
                     <p className="text-gray-400 text-sm">Localização</p>
-                    <p className="font-medium">Brasil</p>
+                    <p className="font-medium text-lg">Brasil</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
                   <i className="fa-solid fa-briefcase text-[#b74b4b] text-xl w-8"></i>
                   <div>
                     <p className="text-gray-400 text-sm">Cargo</p>
-                    <p className="font-medium">Backend Developer</p>
+                    <p className="font-medium text-lg">Backend Developer</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
                   <i className="fa-solid fa-laptop-code text-[#b74b4b] text-xl w-8"></i>
                   <div>
                     <p className="text-gray-400 text-sm">Disponibilidade</p>
-                    <p className="font-medium text-green-400">Disponível para projetos</p>
+                    <p className="font-medium text-lg text-green-400">Disponível para projetos</p>
                   </div>
                 </div>
               </div>
@@ -288,11 +293,11 @@ export function App() {
 
       {/* Skills Section */}
       <section id="skills" className="min-h-screen flex items-center px-[9%] py-20">
-        <div className="max-w-6xl mx-auto w-full">
+        <div className="max-w-10xl mx-auto w-full">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
             Minhas <span className="text-[#b74b4b]">Skills</span>
           </h2>
-          <p className="text-center text-gray-400 mb-4 max-w-2xl mx-auto">
+          <p className="text-center text-gray-400 mb-4 max-w-12xl mx-auto">
             Tecnologias e ferramentas que utilizo no dia a dia para construir soluções eficientes.
           </p>
           
@@ -541,14 +546,7 @@ export function App() {
                   >
                     <i className="fa-brands fa-linkedin-in"></i>
                   </a>
-                  <a
-                    href="https://twitter.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 flex items-center justify-center bg-[#1a1a1a] border border-gray-700 text-gray-400 rounded-lg text-xl transition-all duration-300 hover:bg-[#b74b4b] hover:text-white hover:border-[#b74b4b]"
-                  >
-                    <i className="fa-brands fa-x-twitter"></i>
-                  </a>
+                 
                 </div>
               </div>
             </div>
