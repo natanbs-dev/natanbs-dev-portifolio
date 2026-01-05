@@ -351,7 +351,7 @@ export function App() {
           <div className="mt-12 text-center">
             <h3 className="text-xl font-semibold mb-6 text-gray-300">Outras Tecnologias</h3>
             <div className="flex flex-wrap justify-center gap-3">
-              {['Spring Boot', 'REST APIs', 'PostgreSQL', 'MongoDB', 'Redis', 'Kafka', 'AWS', 'CI/CD', 'Kubernetes', 'Nginx'].map((tech) => (
+              {['Spring Boot', 'REST APIs', 'PostgreSQL', 'MongoDB', 'Wayland', 'Microsoft Azure', 'AWS', 'CI/CD', 'Kubernetes', 'kali-linux'].map((tech) => (
                 <span
                   key={tech}
                   className="px-4 py-2 bg-[#1a1a1a] border border-gray-700 rounded-full text-sm text-gray-300 hover:border-[#b74b4b] hover:text-[#b74b4b] transition-all duration-300 cursor-default"
@@ -612,7 +612,7 @@ export function App() {
           </div>
           {/*copyright no extremo direito */}
           <p className="text-gray-400 order-1 md:order-2 text-right">
-            © 2024 <span className="text-[#b74b4b]">Natan Barbosa</span>. Todos os direitos reservados.
+            © 2026 <span className="text-[#b74b4b]">Natan Barbosa</span>. Todos os direitos reservados.
           </p>
         </div>
       </footer>
