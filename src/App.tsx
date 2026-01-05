@@ -367,7 +367,7 @@ export function App() {
 
       {/* Projects Section */}
       <section id="projects" className="min-h-screen flex items-center px-[9%] py-20 bg-[#0a0a0a]">
-        <div className="max-w-6xl mx-auto w-full">
+        <div className="max-w-10xl mx-auto w-full">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
             Meus <span className="text-[#b74b4b]">Projetos</span>
           </h2>
@@ -430,7 +430,7 @@ export function App() {
 
       {/* Experience Section */}
       <section id="experience" className="min-h-screen flex items-center px-[9%] py-20">
-        <div className="max-w-6xl mx-auto w-full">
+        <div className="max-w-10xl mx-auto w-full">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
             Minha <span className="text-[#b74b4b]">Experiência</span>
           </h2>
@@ -489,7 +489,7 @@ export function App() {
 
       {/* Contact Section */}
       <section id="contact" className="min-h-screen flex items-center px-[9%] py-20 bg-[#0a0a0a]">
-        <div className="max-w-6xl mx-auto w-full">
+        <div className="max-w-12xl mx-auto w-full">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
             Entre em <span className="text-[#b74b4b]">Contato</span>
           </h2>
@@ -605,7 +605,7 @@ export function App() {
       <footer className="py-8 px-[9%] border-t border-gray-800">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-400">
-            © 2024 <span className="text-[#b74b4b]">Natan Barbosa</span>. Todos os direitos reservados.
+            © 2026 <span className="text-[#b74b4b]">Natan Barbosa</span>. Todos os direitos reservados.
           </p>
           <div className="flex items-center gap-2 text-gray-400">
             <span>Feito com</span>
