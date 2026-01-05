@@ -116,12 +116,12 @@ export function App() {
         </button>
 
         {/* Navigation */}
-        <nav className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-black/95 md:bg-transparent p-4 md:p-0 gap-2 md:gap-0`}>
+        <nav className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-black/95 md:bg-transparent p-4 md:p-0 gap-4 md:gap-8`}>
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`text-lg md:text-xl ml-0 md:ml-8 font-medium transition-all duration-300 py-2 md:py-0 text-left border-b-2 md:border-b-3 ${
+              className={`text-lg md:text-xl font-medium transition-all duration-300 py-2 md:py-0 text-left border-b-2 md:border-b-3 ${
                 activeSection === item.id
                   ? 'text-[#b74b4b] border-[#b74b4b]'
                   : 'text-white border-transparent hover:text-[#b74b4b] hover:border-[#b74b4b]'
@@ -150,7 +150,7 @@ export function App() {
 
           <div className="flex justify-center md:justify-start gap-4 mb-8">
             <a
-              href="https://www.linkedin.com/in/"
+              href="https://www.linkedin.com/in/barbosa-dev/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 flex items-center justify-center border-2 border-[#b74b4b] text-[#b74b4b] rounded-full text-xl transition-all duration-300 hover:bg-[#b74b4b] hover:text-black hover:scale-110 hover:-translate-y-1 hover:shadow-[0_0_25px_#b74b4b]"
@@ -166,15 +166,7 @@ export function App() {
               <i className="fa-brands fa-github"></i>
             </a>
             <a
-              href="https://twitter.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 flex items-center justify-center border-2 border-[#b74b4b] text-[#b74b4b] rounded-full text-xl transition-all duration-300 hover:bg-[#b74b4b] hover:text-black hover:scale-110 hover:-translate-y-1 hover:shadow-[0_0_25px_#b74b4b]"
-            >
-              <i className="fa-brands fa-x-twitter"></i>
-            </a>
-            <a
-              href="mailto:contato@natanbarbosa.dev"
+              href="bonham_nt@proton.me"
               className="w-12 h-12 flex items-center justify-center border-2 border-[#b74b4b] text-[#b74b4b] rounded-full text-xl transition-all duration-300 hover:bg-[#b74b4b] hover:text-black hover:scale-110 hover:-translate-y-1 hover:shadow-[0_0_25px_#b74b4b]"
             >
               <i className="fa-solid fa-envelope"></i>
