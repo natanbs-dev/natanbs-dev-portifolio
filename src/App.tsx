@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 
 export function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -7,6 +7,10 @@ export function App() {
   const [textIndex, setTextIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
+  const [formResult, setFormResult] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  
   const roles = ['Full Stack Developer', 'Java Developer', 'Python Developer', 'Linux Enthusiast', 'Backend Developer'];
 
   useEffect(() => {
@@ -36,6 +40,37 @@ export function App() {
     setIsMenuOpen(false);
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  event.preventDefault();           // Impede reload da página
+  setIsSubmitting(true);            // Mostra "Enviando..."
+  setFormResult('');                // Limpa resultado anterior
+
+  const formData = new FormData(event.currentTarget);
+  formData.append('access_key', '9b9a99c8-f482-407e-ad5b-2ce3f3d57d29'); // SUA CHAVE!
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setFormResult('success');                    // Mostra mensagem verde
+      (event.target as HTMLFormElement).reset();   // Limpa o formulário
+    } else {
+      setFormResult('error');                      // Mostra mensagem vermelha
+    }
+  } catch {
+    setFormResult('error');
+  } finally {
+    setIsSubmitting(false);                        // Remove "Enviando..."
+  }
+};
+
+
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -560,13 +595,22 @@ export function App() {
               </div>
             </div>
 
-            {/* Contact Form */}
+             {/* Contact Form */}
             <div className="bg-[#1a1a1a] p-8 rounded-2xl border border-gray-800">
-              <form className="space-y-6">
+              <form 
+                onSubmit={handleSubmit}
+                className="space-y-6"
+              >
+                {/* Campos ocultos do Web3Forms */}
+                <input type="hidden" name="subject" value="Nova mensagem do Portfólio!" />
+                <input type="hidden" name="from_name" value="Portfólio Natan Barbosa" />
+                
                 <div>
                   <label className="block text-gray-400 text-sm mb-2">Nome</label>
                   <input
                     type="text"
+                    name="name"
+                    required
                     placeholder="Seu nome"
                     className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-700 rounded-lg focus:border-[#b74b4b] focus:outline-none transition-colors duration-300 text-white"
                   />
@@ -575,6 +619,8 @@ export function App() {
                   <label className="block text-gray-400 text-sm mb-2">Email</label>
                   <input
                     type="email"
+                    name="email"
+                    required
                     placeholder="seu@email.com"
                     className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-700 rounded-lg focus:border-[#b74b4b] focus:outline-none transition-colors duration-300 text-white"
                   />
@@ -582,23 +628,54 @@ export function App() {
                 <div>
                   <label className="block text-gray-400 text-sm mb-2">Mensagem</label>
                   <textarea
+                    name="message"
+                    required
                     rows={4}
                     placeholder="Sua mensagem..."
                     className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-700 rounded-lg focus:border-[#b74b4b] focus:outline-none transition-colors duration-300 text-white resize-none"
                   ></textarea>
                 </div>
+                
                 <button
                   type="submit"
-                  className="w-full py-4 bg-[#b74b4b] text-white rounded-lg font-semibold text-lg transition-all duration-300 hover:bg-[#8a3939] hover:shadow-[0_0_25px_rgba(183,75,75,0.5)]"
+                  disabled={isSubmitting}
+                  className="w-full py-4 bg-[#b74b4b] text-white rounded-lg font-semibold text-lg transition-all duration-300 hover:bg-[#8a3939] hover:shadow-[0_0_25px_rgba(183,75,75,0.5)] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Enviar Mensagem
-                  <i className="fa-solid fa-paper-plane ml-2"></i>
+                  {isSubmitting ? (
+                    <>
+                      <i className="fa-solid fa-spinner fa-spin mr-2"></i>
+                      Enviando...
+                    </>
+                  ) : (
+                    <>
+                      Enviar Mensagem
+                      <i className="fa-solid fa-paper-plane ml-2"></i>
+                    </>
+                  )}
                 </button>
+
+                {/* Mensagem de sucesso */}
+                {formResult === 'success' && (
+                  <div className="p-4 bg-green-500/20 border border-green-500 rounded-lg text-green-400 text-center">
+                    <i className="fa-solid fa-check-circle mr-2"></i>
+                    Mensagem enviada com sucesso! Entrarei em contato em breve.
+                  </div>
+                )}
+
+                {/* Mensagem de erro */}
+                {formResult === 'error' && (
+                  <div className="p-4 bg-red-500/20 border border-red-500 rounded-lg text-red-400 text-center">
+                    <i className="fa-solid fa-times-circle mr-2"></i>
+                    Erro ao enviar mensagem. Tente novamente ou envie um email diretamente.
+                  </div>
+                )}
               </form>
             </div>
           </div>
         </div>
       </section>
+
+      
 
        {/* Footer */}
       <footer className="py-8 px-[5%] border-t border-gray-800">
