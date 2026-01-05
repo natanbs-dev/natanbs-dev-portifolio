@@ -165,12 +165,12 @@ export function App() {
             >
               <i className="fa-brands fa-github"></i>
             </a>
-            <a
+            {/* <a
               href="bonham_nt@proton.me"
               className="w-12 h-12 flex items-center justify-center border-2 border-[#b74b4b] text-[#b74b4b] rounded-full text-xl transition-all duration-300 hover:bg-[#b74b4b] hover:text-black hover:scale-110 hover:-translate-y-1 hover:shadow-[0_0_25px_#b74b4b]"
             >
               <i className="fa-solid fa-envelope"></i>
-            </a>
+            </a> */}
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
