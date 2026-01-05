@@ -498,7 +498,7 @@ export function App() {
                 </div>
                 <div>
                   <p className="text-gray-400 text-sm">Email</p>
-                  <p className="font-medium">contato@natanbarbosa.dev</p>
+                  <p className="font-medium">bonham_nt@proton.me</p>
                 </div>
               </div>
 
