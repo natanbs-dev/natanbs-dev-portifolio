@@ -43,7 +43,6 @@ export function App() {
     { id: 'skills', label: 'Skills' },
     { id: 'projects', label: 'Projetos' },
     { id: 'experience', label: 'Experiência' },
-    { id: 'academica', label: 'Formação Acadêmica'},
     { id: 'contact', label: 'Contato' },
   ];
 
