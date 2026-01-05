@@ -7,7 +7,7 @@ export function App() {
   const [textIndex, setTextIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const roles = ['Backend Developer', 'Java Developer', 'Python Developer', 'Linux Enthusiast', 'Problem Solver'];
+  const roles = ['Full Stack Developer', 'Java Developer', 'Python Developer', 'Linux Enthusiast', 'Backend Developer'];
 
   useEffect(() => {
     const currentRole = roles[textIndex];
@@ -98,10 +98,10 @@ export function App() {
       description: 'Desenvolvimento de APIs RESTful, integração de sistemas e automação de processos.',
     },
     {
-      role:'segurança da informação',
+      role:'Freelancer',
       company: 'compass uol',
-      period: '2022 - 2025',
-      description:'desenovlimento'
+      period: '2024 - 2026',
+      description:'Desenvolvimento de scripts, suporte técnico, cibersegurança, desenvolvimento de RESTful'
     },
 
   ];
