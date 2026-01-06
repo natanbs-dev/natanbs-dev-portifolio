@@ -689,7 +689,7 @@ export function App() {
           </div>
           {/*copyright no extremo direito */}
           <p className="text-gray-400 order-1 md:order-2 text-right">
-            © 2016 <span className="text-[#b74b4b]">Natan Barbosa</span>. Todos os direitos reservados.
+            © 2026 <span className="text-[#b74b4b]">Natan Barbosa</span>. Todos os direitos reservados.
           </p>
         </div>
       </footer>
