@@ -47,8 +47,7 @@ export function App() {
   setFormResult('');                // Limpa resultado anterior
 
   const formData = new FormData(event.currentTarget);
-  formData.append('access_key', '9b9a99c8-f482-407e-ad5b-2ce3f3d57d29'); // SUA CHAVE!
-
+  formData.append('access_key', '9b9a99c8-f482-407e-ad5b-2ce3f3d57d29');
   try {
     const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
@@ -179,7 +178,7 @@ export function App() {
       <section id="home" className="min-h-screen flex flex-col-reverse md:flex-row justify-center items-center gap-8 md:gap-16 px-[9%] pt-24 pb-12">
         <div className="text-center md:text-left animate-fadeInUp">
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-            Olá, eu sou <span className="text-[#b74b4b]">Natan</span>
+            Olá! Sou o <span className="text-[#b74b4b]">Natan</span>
           </h1>
           <h3 className="text-2xl md:text-4xl font-semibold my-4">
              <span className="text-[#b74b4b]">{typedText}</span>
@@ -464,7 +463,7 @@ export function App() {
 
       {/* Experience Section */}
       <section id="experience" className="min-h-screen flex items-center px-[9%] py-20">
-        <div className="max-w-10xl mx-auto w-full">
+        <div className="max-w-1xl mx-auto w-full">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
             Minha <span className="text-[#b74b4b]">Experiência</span>
           </h2>
