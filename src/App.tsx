@@ -583,7 +583,7 @@ export function App() {
                     <i className="fa-brands fa-github"></i>
                   </a>
                   <a
-                    href="https://linkedin.com/in/"
+                    href="https://www.linkedin.com/in/barbosa-dev/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 flex items-center justify-center bg-[#1a1a1a] border border-gray-700 text-gray-400 rounded-lg text-xl transition-all duration-300 hover:bg-[#b74b4b] hover:text-white hover:border-[#b74b4b]"
