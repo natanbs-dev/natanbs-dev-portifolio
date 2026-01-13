@@ -262,7 +262,7 @@ export function App() {
           <div className="w-full flex justify-center mb-20">
             <div className="max-w-4xl text-center space-y-8 px-4">
               <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
-                Sou um <span className="text-[#b74b4b] font-semibold">Backend Developer</span> baseado no Brasil, 
+                Sou um <span className="text-[#b74b4b] font-semibold">Desenvolvedor</span> baseado no Brasil, 
                 com paixão por construir sistemas robustos e escaláveis. Minha jornada na programação começou 
                 com a curiosidade de entender como as coisas funcionam por baixo dos panos.
               </p>
