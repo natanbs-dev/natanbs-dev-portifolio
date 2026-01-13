@@ -500,7 +500,7 @@ export function App() {
           <div className="mt-6">
             <h3 className="text-4xl font-bold text-center mb-4">
               <i className=" max-w-36xl mx-auto w-full fa-solid fa-graduation-cap text-[#b74b4b] mr-3"></i>
-              Formação Acadêmica
+              Formação <span className="text-[#b74b4b]">Acadêmica</span>
             </h3>
 
             
