@@ -157,7 +157,7 @@ export function App() {
         </button>
 
         {/* Navigation */}
-        <nav className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-black/95 md:bg-transparent p-4 md:p-0 gap-4 md:gap-8`}>
+        <nav className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-black/95 md:bg-transparent p-4 md:p-0 gap-4 md:gap-4`}>
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -189,7 +189,7 @@ export function App() {
             Especializado em Java, Python e automação com Shell Script no ambiente Linux.
           </p>
 
-          <div className="flex justify-center md:justify-start gap-4 mb-8">
+          <div className="flex justify-center md:justify-start gap-4 mb-2">
             <a
               href="https://www.linkedin.com/in/barbosa-dev/"
               target="_blank"
