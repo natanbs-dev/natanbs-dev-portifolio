@@ -93,10 +93,10 @@ export function App() {
 
    const projects = [
     {
-      title: 'Linux Lightweight Debian',
-      description: 'Scripts e configurações para otimização de sistemas Linux, focando em performance e redução de consumo de recursos.',
-      tech: ['Linux', 'Shell Script', 'Bash', 'DevOps'],
-      github: 'https://github.com/natanbs-dev/linux_lightweight',
+      title: 'Projeto Site Doutor Barba',
+      description: 'Site, utilizando Node e React, de introdução a barbearia Doutor Barba, localizada em Paraisópolis.',
+      tech: ['FrontEnd', 'React', 'Node'],
+      github: 'https://barbearia-doutor-barba.vercel.app/',
     },
     {
       title: 'PicPay Backend Challenge',
@@ -439,7 +439,7 @@ export function App() {
                     className="inline-flex items-center gap-2 text-[#b74b4b] hover:text-white transition-colors duration-300"
                   >
                     <i className="fa-brands fa-github"></i>
-                    Ver no GitHub
+                    Ver no GitHub/Site
                     <i className="fa-solid fa-arrow-right text-sm"></i>
                   </a>
                 </div>
