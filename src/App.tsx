@@ -95,7 +95,7 @@ export function App() {
     {
       title: 'Projeto Site Doutor Barba',
       description: 'Site, utilizando Node e React, de introdução a barbearia Doutor Barba, localizada em Paraisópolis.',
-      tech: ['FrontEnd', 'React', 'Node'],
+      tech: ['Typescript','FrontEnd', 'React', 'Node'],
       github: 'https://barbearia-doutor-barba.vercel.app/',
     },
     {
@@ -105,16 +105,16 @@ export function App() {
       github: 'https://github.com/natanbs-dev/PicPay-backend-challenge',
     },
     {
-      title: 'Desafio Técnico Entrevista',
-      description: 'Implementação de desafio técnico para processo seletivo, demonstrando boas práticas de código e arquitetura.',
-      tech: ['Java', 'Clean Code', 'Design Patterns', 'Testing'],
-      github: 'https://github.com/natanbs-dev/desafio_tecnico_entrevista',
+      title: 'DevMonitor',
+      description: 'DevMonitor é um sistema de monitoramento que checa periodicamente a saúde de serviços via requisições HTTP, armazena o histórico em banco de dados e exibe tudo em um dashboard em tempo real.',
+      tech: ['Python', 'DevOps', 'SQL', 'React'],
+      github: 'https://github.com/natanbs-dev/devMonitor',
     },
     {
-      title: 'Teach Python',
-      description: 'Repositório educacional com exemplos e exercícios para ensino de Python, desde o básico até conceitos avançados.',
-      tech: ['Python', 'Educação', 'Algoritmos', 'Estrutura de Dados'],
-      github: 'https://github.com/natanbs-dev/teach-python',
+      title: 'Site BarbosaDev-markdown',
+      description: 'Site que reune artigos e projetos feitos, priorizando o Open Source, quanto a divulgação de conhecimento online',
+      tech: ['typescript', 'Node', 'React'],
+      github: 'https://barbosa-dev.vercel.app/',
     },
   ];
 
