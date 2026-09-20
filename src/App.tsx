@@ -1,4 +1,8 @@
 import { useState, useEffect, FormEvent } from 'react';
+import { AnimatedCounter } from './components/AnimatedCounter';
+import { Terminal } from './components/Terminal';
+import { useInView } from './hooks/useInView';
+import { useReveal, useScrollSpy, useScrollProgress } from './hooks/useScroll';
 
 export function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -9,6 +13,22 @@ export function App() {
 
   const [formResult, setFormResult] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const { progress, showBackToTop } = useScrollProgress();
+  const { ref: skillsRef, inView: skillsInView } = useInView<HTMLDivElement>();
+
+  const navItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'Sobre' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'projects', label: 'Projetos' },
+    { id: 'experience', label: 'Experiência' },
+    { id: 'contact', label: 'Contato' },
+  ];
+  const NAV_IDS = ['home', 'about', 'skills', 'projects', 'experience', 'contact'];
+
+  useReveal();
+  useScrollSpy(NAV_IDS, setActiveSection);
 
   
   const roles = ['Full Stack Developer', 'Java Developer', 'Python Developer', 'Linux Enthusiast', 'Backend Developer'];
@@ -71,24 +91,15 @@ export function App() {
 
 
 
-  const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'Sobre' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projetos' },
-    { id: 'experience', label: 'Experiência' },
-    { id: 'contact', label: 'Contato' },
-  ];
-
   const skills = [
-    { name: 'Java', level: 90, icon: 'fa-brands fa-java' },
+    { name: 'Java', level: 95, icon: 'fa-brands fa-java' },
     { name: 'Python', level: 85, icon: 'fa-brands fa-python' },
     { name: 'JavaScript', level: 80, icon: 'fa-brands fa-js' },
-    { name: 'Linux', level: 88, icon: 'fa-brands fa-linux' },
-    { name: 'Shell Script', level: 85, icon: 'fa-solid fa-terminal' },
-    { name: 'Docker', level: 75, icon: 'fa-brands fa-docker' },
-    { name: 'Git', level: 90, icon: 'fa-brands fa-git-alt' },
-    { name: 'SQL', level: 82, icon: 'fa-solid fa-database' },
+    { name: 'Linux', level: 95, icon: 'fa-brands fa-linux' },
+    { name: 'Shell Script', level: 90, icon: 'fa-solid fa-terminal' },
+    { name: 'Docker', level: 80, icon: 'fa-brands fa-docker' },
+    { name: 'Git', level: 100, icon: 'fa-brands fa-git-alt' },
+    { name: 'SQL', level: 95, icon: 'fa-solid fa-database' },
   ];
 
    const projects = [
@@ -138,10 +149,34 @@ export function App() {
       description:'Desenvolvimento de scripts, suporte técnico, cibersegurança, desenvolvimento de RESTful'
     },
 
+    {
+      role:'Desenvolvedor Full-Stack',
+      company: 'go further',
+      period: '2024 - 2026',
+      description:'Desenvolvimento backend em aplicações com java spring boot. Pentesting em aplicações internas e externas. Docker e otimização de processo em softwares'
+    },
+
   ];
 
   return (
     <div className="min-h-screen bg-black text-white font-[Poppins]">
+      {/* Scroll Progress Bar */}
+      <div
+        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-[#b74b4b] to-[#d67373] z-[60] transition-[width] duration-150 ease-out"
+        style={{ width: `${progress}%` }}
+      ></div>
+
+      {/* Back to Top */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Voltar ao topo"
+        className={`fixed bottom-6 right-6 z-50 w-12 h-12 bg-[#b74b4b] text-white rounded-full flex items-center justify-center text-xl shadow-[0_0_20px_rgba(183,75,75,0.6)] transition-all duration-300 hover:bg-[#8a3939] hover:scale-110 ${
+          showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+        }`}
+      >
+        <i className="fa-solid fa-arrow-up"></i>
+      </button>
+
       {/* Header */}
       <header className="fixed top-0 left-0 w-full py-4 px-[9%] bg-black/90 backdrop-blur-sm flex justify-between items-center z-50 border-b border-gray-800">
         <a href="#" className="text-3xl md:text-4xl text-[#b74b4b] font-extrabold cursor-pointer transition-transform duration-500 hover:scale-110">
@@ -175,16 +210,16 @@ export function App() {
       </header>
 
       {/* Home Section */}
-      <section id="home" className="min-h-screen flex flex-col-reverse md:flex-row justify-center items-center gap-8 md:gap-16 px-[9%] pt-24 pb-12">
-        <div className="text-center md:text-left animate-fadeInUp">
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+      <section id="home" className="min-h-screen flex flex-col-reverse md:flex-row justify-center items-center gap-10 md:gap-12 px-[9%] pt-24 pb-12">
+        <div className="text-center md:text-left animate-fadeInUp w-full max-w-2xl">
+          <h1 className="text-[clamp(2rem,8vw,2.4rem)] md:text-6xl font-bold leading-tight">
             Olá! Sou o <span className="text-[#b74b4b]">Natan</span>
           </h1>
-          <h3 className="text-2xl md:text-4xl font-semibold my-4">
+          <h3 className="text-[clamp(1.25rem,5vw,1.6rem)] md:text-4xl font-semibold my-4 min-h-[2.5em] md:min-h-0">
              <span className="text-[#b74b4b]">{typedText}</span>
             <span className="animate-pulse">|</span>
           </h3>
-          <p className="text-base md:text-lg text-gray-400 max-w-lg mb-6">
+          <p className="text-base md:text-lg text-gray-400 max-w-lg mb-6 mx-auto md:mx-0">
             Backend Developer apaixonado por criar soluções robustas e escaláveis. 
             Especializado em Java, Python e automação com Shell Script no ambiente Linux.
           </p>
@@ -194,6 +229,7 @@ export function App() {
               href="https://www.linkedin.com/in/barbosa-dev/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn"
               className="w-12 h-12 flex items-center justify-center border-2 border-[#b74b4b] text-[#b74b4b] rounded-full text-xl transition-all duration-300 hover:bg-[#b74b4b] hover:text-black hover:scale-110 hover:-translate-y-1 hover:shadow-[0_0_25px_#b74b4b]"
             >
               <i className="fa-brands fa-linkedin-in"></i>
@@ -202,6 +238,7 @@ export function App() {
               href="https://github.com/natanbs-dev"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub"
               className="w-12 h-12 flex items-center justify-center border-2 border-[#b74b4b] text-[#b74b4b] rounded-full text-xl transition-all duration-300 hover:bg-[#b74b4b] hover:text-black hover:scale-110 hover:-translate-y-1 hover:shadow-[0_0_25px_#b74b4b]"
             >
               <i className="fa-brands fa-github"></i>
@@ -231,13 +268,18 @@ export function App() {
               Ver GitHub
             </a>
           </div>
+
+          <div className="mt-16 md:mt-24 pt-8 border-t border-white/10 flex justify-center md:justify-start">
+            <Terminal />
+          </div>
         </div>
 
         <div className="relative animate-float">
-          <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-[#b74b4b] to-[#4a1d1d] p-1">
+          <div className="absolute -inset-4 rounded-full bg-[#b74b4b]/30 blur-3xl animate-glow"></div>
+          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-[#b74b4b] to-[#4a1d1d] p-1 ring-1 ring-[#b74b4b]/40">
             <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden">
-              <div className="text-8xl md:text-9xl text-[#b74b4b]">
-                <i className="fa-solid fa-code"></i>
+              <div className="text-5xl md:text-8xl text-[#b74b4b]">
+                <i className="fa-solid fa-terminal"></i>
               </div>
             </div>
           </div>
@@ -254,13 +296,13 @@ export function App() {
       <section id="about" className="min-h-screen flex items-center px-[9%] py-20 bg-[#0a0a0a]">
         <div className="w-full">
           {/* Título centralizado */}
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="reveal text-4xl md:text-5xl font-bold text-center mb-16">
             Sobre <span className="text-[#b74b4b]">Mim</span>
           </h2>
           
           {/* Texto principal - CENTRALIZADO NA TELA */}
           <div className="w-full flex justify-center mb-20">
-            <div className="max-w-4xl text-center space-y-8 px-4">
+            <div className="reveal max-w-4xl text-center space-y-8 px-4">
               <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
                 Sou um <span className="text-[#b74b4b] font-semibold">Desenvolvedor,</span> nascido no Brasil, 
                 com paixão por construir sistemas robustos e escaláveis. Minha jornada na programação começou 
@@ -280,22 +322,22 @@ export function App() {
           {/* Cards de estatísticas e informações */}
           <div className="max-w-10xl mx-auto grid md:grid-cols-2 gap-5 items-start">
             {/* Estatísticas */}
-            <div className="flex flex-wrap gap-6 justify-center">
+            <div className="reveal reveal-left flex flex-wrap gap-6 justify-center">
               <div className="bg-[#1a1a1a] px-8 py-6 rounded-xl border border-gray-800 text-center min-w-[140px] hover:border-[#b74b4b] transition-all duration-300">
-                <span className="text-[#b74b4b] font-bold text-4xl block">3+</span>
+                <AnimatedCounter value={3} suffix="+" className="text-[#b74b4b] font-bold text-4xl block" />
                 <p className="text-gray-400 text-sm mt-2">Anos de Experiência</p>
               </div>
               <div className="bg-[#1a1a1a] px-8 py-6 rounded-xl border border-gray-800 text-center min-w-[140px] hover:border-[#b74b4b] transition-all duration-300">
-                <span className="text-[#b74b4b] font-bold text-4xl block">20+</span>
+                <AnimatedCounter value={20} suffix="+" className="text-[#b74b4b] font-bold text-4xl block" />
                 <p className="text-gray-400 text-sm mt-2">Projetos Completados</p>
               </div>
               <div className="bg-[#1a1a1a] px-8 py-6 rounded-xl border border-gray-800 text-center min-w-[140px] hover:border-[#b74b4b] transition-all duration-300">
-                <span className="text-[#b74b4b] font-bold text-4xl block">10+</span>
+                <AnimatedCounter value={10} suffix="+" className="text-[#b74b4b] font-bold text-4xl block" />
                 <p className="text-gray-400 text-sm mt-2">Tecnologias Dominadas</p>
               </div>
             </div>
             {/* Informações Rápidas */}
-            <div className="bg-[#1a1a1a] p-8 rounded-2xl border border-gray-800 hover:border-[#b74b4b] transition-all duration-300">
+            <div className="reveal reveal-right bg-[#1a1a1a] p-8 rounded-2xl border border-gray-800 hover:border-[#b74b4b] transition-all duration-300">
               <h3 className="text-xl font-semibold mb-6 text-[#b74b4b]">Informações Rápidas</h3>
               <div className="space-y-5">
                 <div className="flex items-center gap-4">
@@ -335,15 +377,15 @@ export function App() {
       {/* Skills Section */}
       <section id="skills" className="min-h-screen flex items-center px-[9%] py-20">
         <div className="max-w-10xl mx-auto w-full">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
+          <h2 className="reveal text-4xl md:text-5xl font-bold text-center mb-4">
             Minhas <span className="text-[#b74b4b]">Skills</span>
           </h2>
-          <p className="text-center text-gray-400 mb-4 max-w-12xl mx-auto">
+          <p className="reveal text-center text-gray-400 mb-4 max-w-12xl mx-auto">
             Tecnologias e ferramentas que utilizo no dia a dia para construir soluções eficientes.
           </p>
           
           {/* GitHub Link - Destaque */}
-          <div className="text-center mb-12">
+          <div className="reveal text-center mb-12">
             <a
               href="https://github.com/natanbs-dev"
               target="_blank"
@@ -356,7 +398,7 @@ export function App() {
             </a>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div ref={skillsRef} className="grid md:grid-cols-2 gap-6">
             {skills.map((skill) => (
               <div
                 key={skill.name}
@@ -373,8 +415,8 @@ export function App() {
                 </div>
                 <div className="w-full bg-gray-700 rounded-full h-2">
                   <div
-                    className="bg-gradient-to-r from-[#b74b4b] to-[#d67373] h-2 rounded-full transition-all duration-1000"
-                    style={{ width: `${skill.level}%` }}
+                    className="bg-gradient-to-r from-[#b74b4b] to-[#d67373] h-2 rounded-full transition-[width] duration-1000 ease-out"
+                    style={{ width: skillsInView ? `${skill.level}%` : '0%' }}
                   ></div>
                 </div>
               </div>
@@ -382,7 +424,7 @@ export function App() {
           </div>
 
           {/* Additional Skills */}
-          <div className="mt-12 text-center">
+          <div className="reveal mt-12 text-center">
             <h3 className="text-xl font-semibold mb-6 text-gray-300">Outras Tecnologias</h3>
             <div className="flex flex-wrap justify-center gap-3">
               {['Spring Boot', 'REST APIs', 'PostgreSQL', 'MongoDB', 'Wayland', 'Microsoft Azure', 'AWS', 'CI/CD', 'Kubernetes', 'kali-linux'].map((tech) => (
@@ -401,10 +443,10 @@ export function App() {
       {/* Projects Section */}
       <section id="projects" className="min-h-screen flex items-center px-[9%] py-20 bg-[#0a0a0a]">
         <div className="max-w-10xl mx-auto w-full">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
+          <h2 className="reveal text-4xl md:text-5xl font-bold text-center mb-4">
             Meus <span className="text-[#b74b4b]">Projetos</span>
           </h2>
-          <p className="text-center text-gray-400 mb-12 max-w-12xl mx-auto">
+          <p className="reveal text-center text-gray-400 mb-12 max-w-12xl mx-auto">
             Alguns dos projetos que desenvolvi utilizando diferentes tecnologias e abordagens.
           </p>
 
@@ -412,7 +454,8 @@ export function App() {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="bg-[#1a1a1a] rounded-2xl border border-gray-800 overflow-hidden hover:border-[#b74b4b] transition-all duration-300 group hover:-translate-y-2"
+                className="reveal bg-[#1a1a1a] rounded-2xl border border-gray-800 overflow-hidden hover:border-[#b74b4b] transition-all duration-300 group hover:-translate-y-2"
+                style={{ transitionDelay: `${index * 80}ms` }}
               >
                 <div className="h-48 bg-gradient-to-br from-[#b74b4b]/20 to-[#1a1a1a] flex items-center justify-center">
                   <i className="fa-solid fa-folder-open text-6xl text-[#b74b4b] group-hover:scale-110 transition-transform duration-300"></i>
@@ -447,7 +490,7 @@ export function App() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="reveal text-center mt-12">
             <a
               href="https://github.com/natanbs-dev"
               target="_blank"
@@ -464,7 +507,7 @@ export function App() {
       {/* Experience Section */}
       <section id="experience" className="min-h-screen flex items-center px-[9%] py-20">
         <div className="max-w-1xl mx-auto w-full">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+          <h2 className="reveal text-4xl md:text-5xl font-bold text-center mb-12">
             Minha <span className="text-[#b74b4b]">Experiência</span>
           </h2>
 
@@ -475,9 +518,10 @@ export function App() {
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className={`relative flex flex-col md:flex-row gap-8 mb-12 ${
+                className={`reveal relative flex flex-col md:flex-row gap-8 mb-12 ${
                   index % 2 === 0 ? 'md:flex-row-reverse' : ''
                 }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Timeline dot */}
                 <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#b74b4b] rounded-full border-4 border-black"></div>
@@ -497,7 +541,7 @@ export function App() {
           </div>
 
           {/* Education */}
-          <div className="mt-6">
+          <div className="reveal mt-6">
             <h3 className="text-4xl font-bold text-center mb-4">
               <i className=" max-w-36xl mx-auto w-full fa-solid fa-graduation-cap text-[#b74b4b] mr-3"></i>
               Formação <span className="text-[#b74b4b]">Acadêmica</span>
@@ -523,16 +567,16 @@ export function App() {
       {/* Contact Section */}
       <section id="contact" className="min-h-screen flex items-center px-[9%] py-20 bg-[#0a0a0a]">
         <div className="max-w-12xl mx-auto w-full">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
+          <h2 className="reveal text-4xl md:text-5xl font-bold text-center mb-4">
             Entre em <span className="text-[#b74b4b]">Contato</span>
           </h2>
-          <p className="text-center text-gray-400 mb-12 max-w-12xl mx-auto">
+          <p className="reveal text-center text-gray-400 mb-12 max-w-12xl mx-auto">
             Tem um projeto em mente? Vamos conversar! Estou sempre aberto a novas oportunidades e parcerias.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Info */}
-            <div className="space-y-6">
+            <div className="reveal reveal-left space-y-6">
               <h3 className="text-2xl font-bold mb-6">Vamos criar algo incrível juntos</h3>
               
               <div className="flex items-center gap-4 p-4 bg-[#1a1a1a] rounded-xl border border-gray-800 hover:border-[#b74b4b] transition-all duration-300">
@@ -595,7 +639,7 @@ export function App() {
             </div>
 
              {/* Contact Form */}
-            <div className="bg-[#1a1a1a] p-8 rounded-2xl border border-gray-800">
+            <div className="reveal reveal-right bg-[#1a1a1a] p-8 rounded-2xl border border-gray-800">
               <form 
                 onSubmit={handleSubmit}
                 className="space-y-6"
