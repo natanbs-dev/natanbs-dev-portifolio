@@ -103,12 +103,14 @@ export function App() {
   ];
 
    const projects = [
+
     {
-      title: 'Projeto Site Doutor Barba',
-      description: 'Site, utilizando Node e React, de introdução a barbearia Doutor Barba, localizada em Paraisópolis.',
-      tech: ['Typescript','FrontEnd', 'React', 'Node'],
-      github: 'https://barbearia-doutor-barba.vercel.app/',
+      title: 'Barbosa.md',
+      description: 'Site que reune artigos e projetos feitos, priorizando o Open Source, quanto a divulgação de conhecimento online',
+      tech: ['typescript', 'Node', 'React'],
+      github: 'https://natanbs-dev.github.io/blog-dev-vite/#/',
     },
+    
     {
       title: 'PicPay Backend Challenge',
       description: 'Solução para o desafio técnico do PicPay, implementando uma API de transferências entre usuários.',
@@ -116,17 +118,19 @@ export function App() {
       github: 'https://github.com/natanbs-dev/PicPay-backend-challenge',
     },
     {
+      title: 'Projeto Site Doutor Barba',
+      description: 'Site, utilizando Node e React, de introdução a barbearia Doutor Barba, localizada em Paraisópolis.',
+      tech: ['Typescript','FrontEnd', 'React', 'Node'],
+      github: 'https://barbearia-doutor-barba.vercel.app/',
+    },
+
+    {
       title: 'DevMonitor',
       description: 'DevMonitor é um sistema de monitoramento que checa periodicamente a saúde de serviços via requisições HTTP, armazena o histórico em banco de dados e exibe tudo em um dashboard em tempo real.',
       tech: ['Python', 'DevOps', 'SQL', 'React'],
       github: 'https://github.com/natanbs-dev/devMonitor',
     },
-    {
-      title: 'Site BarbosaDev-markdown',
-      description: 'Site que reune artigos e projetos feitos, priorizando o Open Source, quanto a divulgação de conhecimento online',
-      tech: ['typescript', 'Node', 'React'],
-      github: 'https://barbosa-dev.vercel.app/',
-    },
+    
   ];
 
   const experiences = [
