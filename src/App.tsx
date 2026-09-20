@@ -324,7 +324,7 @@ export function App() {
             </div>
           </div>
           {/* Cards de estatísticas e informações */}
-          <div className="max-w-10xl mx-auto grid md:grid-cols-2 gap-5 items-start">
+          <div className="max-w-10xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
             {/* Estatísticas */}
             <div className="reveal reveal-left flex flex-wrap gap-6 justify-center">
               <div className="bg-[#1a1a1a] px-8 py-6 rounded-xl border border-gray-800 text-center min-w-[140px] hover:border-[#b74b4b] transition-all duration-300">
@@ -402,7 +402,7 @@ export function App() {
             </a>
           </div>
 
-          <div ref={skillsRef} className="grid md:grid-cols-2 gap-6">
+          <div ref={skillsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {skills.map((skill) => (
               <div
                 key={skill.name}
@@ -454,7 +454,7 @@ export function App() {
             Alguns dos projetos que desenvolvi utilizando diferentes tecnologias e abordagens.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <div
                 key={index}
@@ -578,7 +578,7 @@ export function App() {
             Tem um projeto em mente? Vamos conversar! Estou sempre aberto a novas oportunidades e parcerias.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Contact Info */}
             <div className="reveal reveal-left space-y-6">
               <h3 className="text-2xl font-bold mb-6">Vamos criar algo incrível juntos</h3>
@@ -587,9 +587,9 @@ export function App() {
                 <div className="w-12 h-12 bg-[#b74b4b] rounded-lg flex items-center justify-center">
                   <i className="fa-solid fa-envelope text-white text-xl"></i>
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-gray-400 text-sm">Email</p>
-                  <p className="font-medium">natan_nbs@protonmail.com</p>
+                  <p className="font-medium break-all">natan_nbs@protonmail.com</p>
                 </div>
               </div>
 
@@ -597,7 +597,7 @@ export function App() {
                 <div className="w-12 h-12 bg-[#b74b4b] rounded-lg flex items-center justify-center">
                   <i className="fa-solid fa-location-dot text-white text-xl"></i>
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-gray-400 text-sm">Localização</p>
                   <p className="font-medium">Brasil</p>
                 </div>
@@ -612,9 +612,9 @@ export function App() {
                 <div className="w-12 h-12 bg-[#b74b4b] rounded-lg flex items-center justify-center">
                   <i className="fa-brands fa-github text-white text-xl"></i>
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-gray-400 text-sm">GitHub</p>
-                  <p className="font-medium">github.com/natanbs-dev</p>
+                  <p className="font-medium break-all">github.com/natanbs-dev</p>
                 </div>
               </a>
 
